@@ -37,6 +37,10 @@
 <img src="CAPTURES/infraction/getInfractionsId.png"/>
 <img src="CAPTURES/infraction/post.png"/>
 <img src="CAPTURES/infraction/put.png"/>
-<img src="CAPTURES/infraction/delete.png"/>
+<img src="CAPTURES/infraction/Delete.png"/>
 <h4>Radar Service</h4>
 <img src="CAPTURES/Radar/getRadars.png"/>
+<img src="CAPTURES/Radar/GetRadarById.png"/>
+<img src="CAPTURES/Radar/post.png"/>
+<img src="CAPTURES/Radar/put.png"/>
+<img src="CAPTURES/Radar/delete.png"/>
