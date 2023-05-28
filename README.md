@@ -1,7 +1,7 @@
 # radar-microServices
 
 <h4>Diagramme de classe</h4>
-<img src="CAPTURES/diagramme.png"/>
+<img src="CAPTURES/diagramme.PNG"/>
 <h4>Immatriculation Service</h4>
 <img src="CAPTURES/interface/2.png"/>
 <h5>Base de donnees</h5>
