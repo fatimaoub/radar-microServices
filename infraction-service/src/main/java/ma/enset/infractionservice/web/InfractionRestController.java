@@ -28,6 +28,11 @@ public class InfractionRestController {
         return infractionRepository.findById(id).orElseThrow(() -> new RuntimeException(String.format("Véhicule %s not found", id)));
     }
 
+    @GetMapping("/infractions/radar/{id}")
+    public List<Infraction> getInfractionsByRadarId(@PathVariable("id") Long id){
+        return infractionRepository
+    }
+
     @PostMapping
     public Infraction createInfraction(@RequestBody Infraction infraction) {
         return  infractionRepository.save(infraction);
