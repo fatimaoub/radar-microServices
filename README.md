@@ -28,3 +28,9 @@
 <img src="CAPTURES/immatriculation/REST/getvehicules.png"/>
 <img src="CAPTURES/immatriculation/REST/postowner.png"/>
 <img src="CAPTURES/immatriculation/REST/updateowner.png"/>
+<h4>Infraction Service</h4>
+<img src="CAPTURES/immatriculation/CAPTURES/infraction/getinfractions.png"/>
+<img src="CAPTURES/immatriculation/CAPTURES/infraction/getinfractionsid.png"/>
+<img src="CAPTURES/immatriculation/CAPTURES/infraction/post.png"/>
+<img src="CAPTURES/immatriculation/CAPTURES/infraction/put.png"/>
+<img src="CAPTURES/immatriculation/CAPTURES/infraction/delete.png"/>
