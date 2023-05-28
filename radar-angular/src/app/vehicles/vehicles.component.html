@@ -1,0 +1,164 @@
+<div class="p-3">
+
+    <div class="card-header">
+      <div class="">
+        <div >
+          <!-- Add new radar -->
+          <div class="float-end" >
+            <button class="btn btn-info btnColor" (click)="openFormPopup()"><i class="bi "></i> Ajouter vehicule</button>
+          <div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark text-center">
+        <tr>
+          <th>Id</th> <th>Numéro d'enregistrement</th>
+          <th>Brand</th>
+          <th>Puissance fiscal</th>
+          <th>Modele</th>
+          <th>Detailes</th>
+          <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        <tr *ngFor = "let vehicle of vehicles">
+          <td>{{vehicle.id}}</td>
+          <td>{{vehicle.regNumber}}</td>
+          <td>{{vehicle.brand}}</td>
+          <td>{{vehicle.fiscalPower}}</td>
+          <td>{{vehicle.model}}</td>
+          <td><button class="btn btn-outline-primary" (click)="openPopup(vehicle)"><i class="bi bi-search"></i></button></td>
+          <td><button class="btn btn-outline-danger" (click)="deleteRadar(vehicle.id)"><i class="bi bi-trash"></i></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Popup with bootstrap -->
+<div class="popup card" *ngIf="isPopupOpen && focusedVehicle != null">
+  <div class="card-body">
+    <!-- Popup content with ability to modify the infraction -->
+    <h4><i class="bi bi-exclamation-circle"></i> Détails de l'infraction</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="vehicleId">Id</label>
+          <input type="text" class="form-control" id="vehicleId" [(ngModel)]="focusedVehicle.id" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="regNumber">Numéro d'enregistrement</label>
+          <input type="text" class="form-control" id="regNumber" [(ngModel)]="focusedVehicle.regNumber" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="brand">Marque</label>
+          <input type="text" class="form-control" id="brand" [(ngModel)]="focusedVehicle.brand" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="model">Modele</label>
+          <input type="text" class="form-control" id="model" [(ngModel)]="focusedVehicle.model" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fiscalPower">Puissance fiscal</label>
+          <input type="text" class="form-control" id="fiscalPower" [(ngModel)]="focusedVehicle.fiscalPower" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ownerId">Id Proprietaire</label>
+          <input type="text" class="form-control" id="ownerId" [(ngModel)]="focusedVehicle.owner.id" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Nom du Proprietaire</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="focusedVehicle.owner.name" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="birthDate">Date de naissance du Proprietaire</label>
+          <input type="text" class="form-control" id="birthDate" [(ngModel)]="focusedVehicle.owner.birthDate" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">Email du Proprietaire</label>
+          <input type="text" class="form-control" id="email" [(ngModel)]="focusedVehicle.owner.email" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-transparent">
+    <!-- Close the popup -->
+    <button class="btn btn-outline-primary" (click)="closePopup()"><i class="bi bi-x"></i> Quitter</button>
+  </div>
+</div>
+
+<!-- Popup with bootstrap -->
+<div class="popup card" *ngIf="isFormPopupOpen">
+  <div class="card-body">
+    <!-- Popup content with ability to add new radar -->
+    <h4><i class="bi bi-plus-circle"></i> Ajouter Vehicule</h4>
+    <form class="row" [formGroup]="newVehicleForm" (ngSubmit)="saveNewVehicle()">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="regNumber1">Numéro d'enregistrement</label>
+          <input type="text" class="form-control" id="regNumber1" formControlName="regNumber">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="brand1">Marque</label>
+          <input type="text" class="form-control" id="brand1" formControlName="brand">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fiscalPower1">Puissance Fiscal</label>
+          <input type="text" class="form-control" id="fiscalPower1" formControlName="fiscalPower">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="model1">Modele</label>
+          <input type="text" class="form-control" id="model1" formControlName="model">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ownerName">Nom du Proprietaire</label>
+          <input type="text" class="form-control" id="ownerName" formControlName="ownerName">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ownerBirthDate">Date</label>
+          <input type="text" class="form-control" id="ownerBirthDate" formControlName="ownerBirthdate">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email1">Email</label>
+          <input type="text" class="form-control" id="email1" formControlName="ownerEmail">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer bg-transparent">
+    <!-- Close the popup -->
+    <button class="btn btn-outline-primary" (click)="closeFormPopup()"><i class="bi bi-x-lg"></i> QUITTER</button>
+    <!-- Add new radar -->
+    <button class="btn btn-outline-success ms-3" (click)="saveNewVehicle()"><i class="bi bi-plus-circle"></i> AJOUTER</button>
+  </div>

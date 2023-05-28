@@ -1,0 +1,14 @@
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm ">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item ms-3" *ngFor="let action of actions">
+        <a class="nav-link" routerLink={{action.link}} (click)="changeActive(action)" [class] = "action.active ? 'link-primary' : ''" href="#"><i class = {{action.icon}}></i> {{action.name}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet>
+
+</router-outlet>
+
