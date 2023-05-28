@@ -30,7 +30,7 @@ public class InfractionRestController {
 
     @GetMapping("/infractions/radar/{id}")
     public List<Infraction> getInfractionsByRadarId(@PathVariable("id") Long id){
-        return infractionRepository
+        return infractionRepository.findByRadarId(id);
     }
 
     @PostMapping
